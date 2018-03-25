@@ -16,6 +16,8 @@ Widget::Widget() :add(false),move(false),ob(false), QWidget(0),
     timer1 = new QTimer();       // Инициализируем таймер
     connect(timer1, &QTimer::timeout, this, &Widget::addanything);
     timer1->start(15);
+    kist,krugi,ovali,kvadrati,prymougol,otrezki,treugol = false;
+    ovali = true;
 }
 
 Widget::~Widget()
@@ -34,24 +36,35 @@ void Widget::slotTimer()
 
 void Widget::addanything(){
     scene->proverka(x,y,add);
-
-    if(add){
-        Circle *alian= new Circle();
-            alian->put(x,y);
-            krug=alian;
-            scene->addItem(alian);
-
-    }
     scene->proverka2(movex,movey,move);
-    if(move){
-       krug->change_razmer(movex-x,movey-y) ;
+    if(ovali){
+        if(add){
+            Circle *alian= new Circle();
+                alian->put(x,y);
+                krug=alian;
+                scene->addItem(alian);
 
+        }
+
+        if(move){
+           krug->change_razmer(movex-x,movey-y) ;
+
+        }
     }
 
 }
+
+
 
 void Widget::resizeEvent(QResizeEvent *event)
 {
     timer->start(100);
     QWidget::resizeEvent(event);
+}
+
+void Widget::on_kist_clicked()
+{
+    krugi,ovali,kvadrati,prymougol,otrezki,treugol = false;
+    kist=true;
+    scene->kisttrue();
 }

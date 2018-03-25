@@ -23,6 +23,7 @@ public:
     float x,y,movex,movey;
     bool add,move,ob;
     Circle *krug;
+    bool kist,krugi,ovali,kvadrati,prymougol,otrezki,treugol;
 
 private:
     Ui::Widget *ui;
@@ -32,6 +33,7 @@ private:
                          * */
     QTimer *timer1;
     paintScene *scene;  // Объявляем кастомную графическую сцену
+    void on_kist_clicked();
 
 private:
     /* Переопределяем событие изменения размера окна
@@ -41,5 +43,8 @@ private:
 
 private slots:
     void slotTimer();
+
+public slots:
+    //void kists();
 };
 #endif // WIDGET_H

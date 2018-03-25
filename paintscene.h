@@ -14,9 +14,10 @@ public:
     explicit paintScene(QObject *parent = 0);
     ~paintScene();
     float x,y,movex,movey;
-    bool put,move;
+    bool put,move,kist;
     void proverka(float &xx, float &yy, bool &add);
     void proverka2(float &xx, float &yy, bool &add);
+    void kisttrue();
 
 private:
     QPointF     previousPoint;      // Координаты предыдущей точки

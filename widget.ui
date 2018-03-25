@@ -35,23 +35,23 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_4">
+          <widget class="QPushButton" name="elipse">
            <property name="text">
-            <string>PushButton</string>
+            <string>элипс</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="kvadrat">
            <property name="text">
-            <string>PushButton</string>
+            <string>квадрат</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_5">
+          <widget class="QPushButton" name="prymougolnic">
            <property name="text">
-            <string>PushButton</string>
+            <string>прямоугольник</string>
            </property>
           </widget>
          </item>
@@ -60,30 +60,30 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QPushButton" name="pushButton_7">
+          <widget class="QPushButton" name="treugolnik">
            <property name="text">
-            <string>PushButton</string>
+            <string>треугольник</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_6">
+          <widget class="QPushButton" name="kraska">
            <property name="text">
-            <string>PushButton</string>
+            <string>красный</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_8">
+          <widget class="QPushButton" name="otrezok">
            <property name="text">
-            <string>PushButton</string>
+            <string>линия</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_9">
+          <widget class="QPushButton" name="deletebut">
            <property name="text">
-            <string>PushButton</string>
+            <string>удалить</string>
            </property>
           </widget>
          </item>
