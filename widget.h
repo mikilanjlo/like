@@ -6,6 +6,7 @@
 #include <QResizeEvent>
 
 #include <paintscene.h>
+#include <circle.h>
 
 namespace Ui {
 class Widget;
@@ -19,8 +20,9 @@ public:
     Widget();
     ~Widget();
     void addanything();
-    float x,y;
-    bool add;
+    float x,y,movex,movey;
+    bool add,move,ob;
+    Circle *krug;
 
 private:
     Ui::Widget *ui;

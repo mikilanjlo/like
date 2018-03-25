@@ -11,6 +11,8 @@ Circle::Circle(QObject *parent) :
     eye=2;
     x=0;
     y=0;
+    h=0;
+    w=0;
 }
 
 Circle::~Circle()
@@ -27,10 +29,10 @@ void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 {
     QPen(Qt::NoPen);
     painter->setBrush(Qt::red);
-    painter->drawEllipse(x - 25,
-                   y - 25,
-                   50,
-                   50);
+    painter->drawEllipse(x ,
+                   y ,
+                   h,
+                   w);
 
 
     Q_UNUSED(option);
@@ -41,5 +43,11 @@ void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 void Circle::put(int r, int z){
     x=r;
     y=z;
+    update(QRectF(-100,-100,800,800));
+}
+
+void Circle::change_razmer(int r, int z){
+    h=r;
+    w=z;
     update(QRectF(-100,-100,800,800));
 }

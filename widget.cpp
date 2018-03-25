@@ -2,7 +2,7 @@
 #include "circle.h"
 #include "ui_widget.h"
 
-Widget::Widget() :add(false), QWidget(0),
+Widget::Widget() :add(false),move(false),ob(false), QWidget(0),
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
@@ -29,16 +29,25 @@ void Widget::slotTimer()
      * от размеров окна
      * */
     timer->stop();
-    scene->setSceneRect(0,0, ui->graphicsView->width(), ui->graphicsView->height() );
+    scene->setSceneRect(0,0, ui->graphicsView->width()-20, ui->graphicsView->height()-20 );
 }
 
 void Widget::addanything(){
     scene->proverka(x,y,add);
+
     if(add){
         Circle *alian= new Circle();
             alian->put(x,y);
+            krug=alian;
             scene->addItem(alian);
+
     }
+    scene->proverka2(movex,movey,move);
+    if(move){
+       krug->change_razmer(movex-x,movey-y) ;
+
+    }
+
 }
 
 void Widget::resizeEvent(QResizeEvent *event)

@@ -17,9 +17,11 @@ public:
     double razmer;
     int step;
     int eye;
-    int x,y;
+    float x,y,h,w;
 public slots:
     void put(int r, int z);
+    void change_razmer(int r, int z);
+
 
 
 protected:

@@ -1,7 +1,7 @@
 #include "paintscene.h"
 
 
-paintScene::paintScene(QObject *parent) : QGraphicsScene(parent)
+paintScene::paintScene(QObject *parent) :move(false), put(false), QGraphicsScene(parent)
 {
 
 }
@@ -28,18 +28,33 @@ void paintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
                          event->scenePos().y() - 5);
     addItem(alian);
     */
-    x=event->scenePos().x();
-    y=event->scenePos().y();
-    put=true;
+
+        move=!move;
+        x=event->scenePos().x();
+        y=event->scenePos().y();
+        put=true;
+
 }
 
 void paintScene::proverka(float &xx, float &yy,bool &add){
+    add=put;
     if(put){
         xx=x;
         yy=y;
-        add=put;
+
         put=!put;
     }
+
+
+}
+
+void paintScene::proverka2(float &xx, float &yy,bool &add){
+    if(move){
+        xx=movex;
+        yy=movey;
+
+    }
+    add=move;
 
 }
 
@@ -53,4 +68,7 @@ void paintScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
             QPen(Qt::red,10,Qt::SolidLine,Qt::RoundCap));
     // Обновляем данные о предыдущей координате
     previousPoint = event->scenePos();*/
+    movex=event->scenePos().x();
+    movey=event->scenePos().y();
+    move=true;
 }
