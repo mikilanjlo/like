@@ -7,6 +7,9 @@
 
 #include <paintscene.h>
 #include <circle.h>
+#include <krugi.h>
+#include <kvadr.h>
+#include <prymougol.h>
 
 namespace Ui {
 class Widget;
@@ -21,9 +24,24 @@ public:
     ~Widget();
     void addanything();
     float x,y,movex,movey;
-    bool add,move,ob;
+    bool add,move;
     Circle *krug;
-    bool kist,krugi,ovali,kvadrati,prymougol,otrezki,treugol;
+    Krugi *krugs;
+    Kvadr *kvadr;
+    Prymougol *pr;
+    bool kist;
+
+    bool krugi;
+
+    bool ovali;
+
+    bool kvadrati;
+
+    bool prymougol;
+
+    bool otrezki;
+
+    bool treugol;
 
 private:
     Ui::Widget *ui;
@@ -33,7 +51,7 @@ private:
                          * */
     QTimer *timer1;
     paintScene *scene;  // Объявляем кастомную графическую сцену
-    void on_kist_clicked();
+
 
 private:
     /* Переопределяем событие изменения размера окна
@@ -43,6 +61,16 @@ private:
 
 private slots:
     void slotTimer();
+
+    void on_kist_clicked();
+
+    void on_krug_clicked();
+
+    void on_elipse_clicked();
+
+    void on_kvadrat_clicked();
+
+    void on_prymougolnic_pressed();
 
 public slots:
     //void kists();

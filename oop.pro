@@ -27,12 +27,19 @@ SOURCES += \
         main.cpp \
         widget.cpp \
     paintscene.cpp \
-    circle.cpp
+    circle.cpp \
+    krugi.cpp \
+    kvadr.cpp \
+    prymougol.cpp \
+    tri.cpp
 
 HEADERS += \
         widget.h \
     paintscene.h \
-    circle.h
+    circle.h \
+    krugi.h \
+    kvadr.h \
+    prymougol.h
 
 FORMS += \
         widget.ui

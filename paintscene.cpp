@@ -50,8 +50,13 @@ void paintScene::proverka(float &xx, float &yy,bool &add){
 
 }
 
+void paintScene::kistfalse(){
+
+    kist=false;
+}
 void paintScene::kisttrue(){
-    kist=!kist;
+
+    kist=true;
 }
 
 void paintScene::proverka2(float &xx, float &yy,bool &add){
