@@ -31,7 +31,8 @@ SOURCES += \
     krugi.cpp \
     kvadr.cpp \
     prymougol.cpp \
-    tri.cpp
+    tri.cpp \
+    line.cpp
 
 HEADERS += \
         widget.h \
@@ -39,7 +40,9 @@ HEADERS += \
     circle.h \
     krugi.h \
     kvadr.h \
-    prymougol.h
+    prymougol.h \
+    tri.h \
+    line.h
 
 FORMS += \
         widget.ui

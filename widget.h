@@ -10,6 +10,8 @@
 #include <krugi.h>
 #include <kvadr.h>
 #include <prymougol.h>
+#include <tri.h>
+#include <line.h>
 
 namespace Ui {
 class Widget;
@@ -29,6 +31,8 @@ public:
     Krugi *krugs;
     Kvadr *kvadr;
     Prymougol *pr;
+    Tri *tre;
+    Line *line;
     bool kist;
 
     bool krugi;
@@ -71,6 +75,10 @@ private slots:
     void on_kvadrat_clicked();
 
     void on_prymougolnic_pressed();
+
+    void on_treugolnik_clicked();
+
+    void on_otrezok_clicked();
 
 public slots:
     //void kists();

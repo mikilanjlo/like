@@ -1,7 +1,7 @@
-#include "tri.h"
+#include "line.h"
 
 
-Tri::Tri(QObject *parent) :
+Line::Line(QObject *parent) :
     QObject(parent), QGraphicsItem()
 {
     angle = 0;      // Задаём угол поворота графического объекта
@@ -15,38 +15,37 @@ Tri::Tri(QObject *parent) :
     w=0;
 }
 
-Tri::~Tri()
+Line::~Line()
 {
 
 }
 
-QRectF Tri::boundingRect() const
+QRectF Line::boundingRect() const
 {
     return QRectF(-100,-100,800,800);   /// Ограничиваем область, в которой лежит объект
 }
 
-void Tri::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Line::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QPen(Qt::NoPen);
+    //QPen(Qt::NoPen);
     painter->setBrush(Qt::red);
-    QPolygon polygon;   /// Используем класс полигона, чтобы отрисовать треугольник
-    /// Помещаем координаты точек в полигональную модель
-    polygon << QPoint(x,y) << QPoint(x,y+h) << QPoint(x+w,y+h);
-    painter->drawPolygon(polygon);
+    //painter->SetPen(QPen(Qt::red,10,Qt::SolidLine,Qt::RoundCap));
+    painter->setPen(QPen(Qt::red,5,Qt::SolidLine, Qt::RoundCap));
+    painter->drawLine(x,y,x+h,y+w);
 
     Q_UNUSED(option);
     Q_UNUSED(widget);
 }
 
 //получение размера из главного класса
-void Tri::put(int r, int z){
+void Line::put(int r, int z){
     x=r;
     y=z;
     update(QRectF(-100,-100,800,800));
 }
 
-void Tri::change_razmer(int r, int z){
-    h=z;
-    w=r;
+void Line::change_razmer(int r, int z){
+    h=r;
+    w=z;
     update(QRectF(-100,-100,800,800));
 }

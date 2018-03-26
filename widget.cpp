@@ -28,6 +28,8 @@ Widget::Widget() :add(false),move(false), QWidget(0),
     krugs = NULL;
     kvadr = NULL;
     pr = NULL;
+    tre = NULL;
+    line =NULL;
 
 }
 
@@ -117,7 +119,40 @@ void Widget::addanything(){
                 else{
                     pr=NULL;
                 }
+                if(treugol){
+                     if(add){
+                         Tri *aliantr= new Tri();
+                             aliantr->put(x,y);
+                             tre=aliantr;
+                             scene->addItem(aliantr);
 
+                     }
+
+                     if(move && tre!=NULL){
+                        tre->change_razmer(movex-x,movey-y) ;
+
+                     }
+                 }
+                else{
+                    tre=NULL;
+                }
+                if(otrezki){
+                     if(add){
+                         Line *alianln = new Line();
+                             alianln->put(x,y);
+                             line=alianln;
+                             scene->addItem(alianln);
+
+                     }
+
+                     if(move && line!=NULL){
+                        line->change_razmer(movex-x,movey-y) ;
+
+                     }
+                 }
+                else{
+                    line=NULL;
+                }
 
 
     }
@@ -189,6 +224,30 @@ void Widget::on_prymougolnic_pressed()
     kvadrati= false;
     prymougol= true;
     otrezki= false;
+    treugol = false;
+    ovali = false;
+    kist=false;
+    scene->kistfalse();
+}
+
+void Widget::on_treugolnik_clicked()
+{
+    krugi= false;
+    kvadrati= false;
+    prymougol= false;
+    otrezki= false;
+    treugol = true;
+    ovali = false;
+    kist=false;
+    scene->kistfalse();
+}
+
+void Widget::on_otrezok_clicked()
+{
+    krugi= false;
+    kvadrati= false;
+    prymougol= false;
+    otrezki= true;
     treugol = false;
     ovali = false;
     kist=false;
