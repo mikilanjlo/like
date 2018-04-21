@@ -30,6 +30,13 @@ Widget::Widget() :add(false),move(false), QWidget(0),
     pr = NULL;
     tre = NULL;
     line =NULL;
+   /* fcircles= NULL;
+    fkrugis= NULL;
+    fkvadrs= NULL;
+    flines= NULL;
+    fpryms= NULL;
+    ftris= NULL;*/
+    flist = new list;
     MainColor=Qt::white;
     ui->kraska->setStyleSheet("background-color: "+MainColor.name());
 }
@@ -39,6 +46,115 @@ Widget::~Widget()
     delete ui;
 }
 
+void Widget::funccircle(Circle* x){
+    // Включение в список нового компонента
+        listcircle* y = new listcircle;
+        listcircle* c = new listcircle;
+        c->object = x;
+        c->next = NULL;
+        if (flist->circles == NULL){
+            flist->circles = c;
+        }
+        else{
+            y = flist->circles;
+            while( y->next != NULL){
+                y = y->next;
+            }
+            y->next = c;
+        }
+}
+
+void Widget::funckrugi(Krugi* x){
+    // Включение в список нового компонента
+        listkrugi* y = new listkrugi;
+        listkrugi* c = new listkrugi;
+        c->object = x;
+        c->next = NULL;
+        if (flist->krugis == NULL){
+            flist->krugis = c;
+        }
+        else{
+            y = flist->krugis;
+            while( y->next != NULL){
+                y = y->next;
+            }
+            y->next = c;
+        }
+}
+
+void Widget::funckvadr(Kvadr* x){
+    // Включение в список нового компонента
+        listkvadr* y = new listkvadr;
+        listkvadr* c = new listkvadr;
+        c->object = x;
+        c->next = NULL;
+        if (flist->kvadrs == NULL){
+            flist->kvadrs = c;
+        }
+        else{
+            y = flist->kvadrs;
+            while( y->next != NULL){
+                y = y->next;
+            }
+            y->next = c;
+        }
+}
+
+void Widget::funcline(Line* x){
+    // Включение в список нового компонента
+        listline* y = new listline;
+        listline* c = new listline;
+        c->object = x;
+        c->next = NULL;
+        if (flist->lines == NULL){
+            flist->lines = c;
+        }
+        else{
+            y = flist->lines;
+            while( y->next != NULL){
+                y = y->next;
+            }
+            y->next = c;
+        }
+}
+
+void Widget::funcprym(Prymougol* x){
+    // Включение в список нового компонента
+        listprym* y = new listprym;
+        listprym* c = new listprym;
+        c->object = x;
+        c->next = NULL;
+        if (flist->pryms == NULL){
+            flist->pryms = c;
+        }
+        else{
+            y = flist->pryms;
+            while( y->next != NULL){
+                y = y->next;
+            }
+            y->next = c;
+        }
+}
+
+void Widget::functri(Tri* x){
+    // Включение в список нового компонента
+        listtri* y = new listtri;
+        listtri* c = new listtri;
+        c->object = x;
+        c->next = NULL;
+        if (flist->tris == NULL){
+            flist->tris = c;
+        }
+        else{
+            y = flist->tris;
+            while( y->next != NULL){
+                y = y->next;
+            }
+            y->next = c;
+        }
+}
+
+
 void Widget::slotTimer()
 {
     /* Переопределяем размеры графической сцены в зависимости
@@ -46,6 +162,10 @@ void Widget::slotTimer()
      * */
     timer->stop();
     scene->setSceneRect(0,0, ui->graphicsView->width()-20, ui->graphicsView->height()-20 );
+}
+
+void Widget::proverca_click(){
+
 }
 
 void Widget::addanything(){
@@ -58,6 +178,7 @@ void Widget::addanything(){
                     alian->put(x,y);
                     krug=alian;
                     alian->change_color(MainColor);
+                    funccircle(alian);
                     scene->addItem(alian);
 
 
@@ -77,6 +198,7 @@ void Widget::addanything(){
                         alians->put(x,y);
                         krugs=alians;
                         alians->change_color(MainColor);
+                        funckrugi(alians);
                         scene->addItem(alians);
 
                 }
@@ -95,6 +217,7 @@ void Widget::addanything(){
                              aliankv->put(x,y);
                              kvadr=aliankv;
                              aliankv->change_color(MainColor);
+                             funckvadr(aliankv);
                              scene->addItem(aliankv);
 
                      }
@@ -113,6 +236,7 @@ void Widget::addanything(){
                              alianpr->put(x,y);
                              pr=alianpr;
                              alianpr->change_color(MainColor);
+                             funcprym(alianpr);
                              scene->addItem(alianpr);
 
                      }
@@ -131,6 +255,7 @@ void Widget::addanything(){
                              aliantr->put(x,y);
                              tre=aliantr;
                              aliantr->change_color(MainColor);
+                             functri(aliantr);
                              scene->addItem(aliantr);
 
                      }
@@ -149,6 +274,7 @@ void Widget::addanything(){
                              alianln->put(x,y);
                              line=alianln;
                              alianln->change_color(MainColor);
+                             funcline(alianln);
                              scene->addItem(alianln);
 
                      }
@@ -274,4 +400,16 @@ void Widget::on_kraska_clicked()
         scene->change_color(MainColor);
         ui->kraska->setStyleSheet("background-color: "+color.name());
     }
+}
+
+void Widget::on_klick_clicked()
+{
+    krugi= false;
+    kvadrati= false;
+    prymougol= false;
+    otrezki= false;
+    treugol = false;
+    ovali = false;
+    kist=false;
+    scene->kistfalse();
 }

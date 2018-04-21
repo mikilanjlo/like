@@ -21,9 +21,48 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
+          <widget class="QPushButton" name="klick">
+           <property name="text">
+            <string>клик</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="kraska">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="kist">
            <property name="text">
             <string>кисть</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="deletebut">
+           <property name="text">
+            <string>удалить</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QPushButton" name="treugolnik">
+           <property name="text">
+            <string>треугольник</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="kvadrat">
+           <property name="text">
+            <string>квадрат</string>
            </property>
           </widget>
          </item>
@@ -47,6 +86,13 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="prymougolnic">
+           <property name="text">
+            <string>прямоугольник</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="elipse">
            <property name="text">
             <string>элипс</string>
@@ -54,48 +100,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="kvadrat">
-           <property name="text">
-            <string>квадрат</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="prymougolnic">
-           <property name="text">
-            <string>прямоугольник</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QPushButton" name="treugolnik">
-           <property name="text">
-            <string>треугольник</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="kraska">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QPushButton" name="otrezok">
            <property name="text">
             <string>линия</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="deletebut">
-           <property name="text">
-            <string>удалить</string>
            </property>
           </widget>
          </item>

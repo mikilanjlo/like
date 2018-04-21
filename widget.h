@@ -17,6 +17,45 @@ namespace Ui {
 class Widget;
 }
 
+struct listcircle {
+        Circle *object;
+        listcircle* next; //Ссылка на следущий элемент списка
+};
+
+struct listkrugi {
+        Krugi *object;
+        listkrugi* next; //Ссылка на следущий элемент списка
+};
+
+struct listkvadr {
+        Kvadr *object;
+        listkvadr* next; //Ссылка на следущий элемент списка
+};
+
+struct listline {
+        Line *object;
+        listline* next; //Ссылка на следущий элемент списка
+};
+
+struct listprym {
+        Prymougol *object;
+        listprym* next; //Ссылка на следущий элемент списка
+};
+
+struct listtri {
+        Tri *object;
+        listtri* next; //Ссылка на следущий элемент списка
+};
+
+struct list {
+        listcircle *circles;
+        listkrugi *krugis;
+        listkvadr *kvadrs;
+        listline *lines;
+        listprym *pryms;
+        listtri *tris;
+};
+
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -34,6 +73,13 @@ public:
     Tri *tre;
     Line *line;
     QColor MainColor;
+   /* listcircle fcircles;
+    listkrugi fkrugis;
+    listkvadr fkvadrs;
+    listline flines;
+    listprym fpryms;
+    listtri ftris;*/
+    list *flist;
     bool kist;
 
     bool krugi;
@@ -56,6 +102,13 @@ private:
                          * */
     QTimer *timer1;
     paintScene *scene;  // Объявляем кастомную графическую сцену
+    void funccircle(Circle *x);
+    void funckrugi(Krugi *x);
+    void funckvadr(Kvadr *x);
+    void funcline(Line *x);
+    void functri(Tri *x);
+    void funcprym(Prymougol *x);
+    void proverca_click();
 
 
 private:
@@ -82,6 +135,8 @@ private slots:
     void on_otrezok_clicked();
 
     void on_kraska_clicked();
+
+    void on_klick_clicked();
 
 public slots:
     //void kists();
