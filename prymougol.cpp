@@ -13,6 +13,7 @@ Prymougol::Prymougol(QObject *parent) :
     y=0;
     h=0;
     w=0;
+    Maincolor = Qt::red;
 }
 
 Prymougol::~Prymougol()
@@ -28,7 +29,7 @@ QRectF Prymougol::boundingRect() const
 void Prymougol::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QPen(Qt::NoPen);
-    painter->setBrush(Qt::red);
+    painter->setBrush(Maincolor);
     painter->drawRect(x ,
                    y ,
                    h,
@@ -50,4 +51,8 @@ void Prymougol::change_razmer(int r, int z){
     h=r;
     w=z;
     update(QRectF(-100,-100,800,800));
+}
+
+void Prymougol::change_color(QColor color){
+    Maincolor=color;
 }

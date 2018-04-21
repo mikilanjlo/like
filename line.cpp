@@ -13,6 +13,7 @@ Line::Line(QObject *parent) :
     y=0;
     h=0;
     w=0;
+    Maincolor = Qt::red;
 }
 
 Line::~Line()
@@ -28,9 +29,9 @@ QRectF Line::boundingRect() const
 void Line::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     //QPen(Qt::NoPen);
-    painter->setBrush(Qt::red);
+    //painter->setBrush(Maincolor);
     //painter->SetPen(QPen(Qt::red,10,Qt::SolidLine,Qt::RoundCap));
-    painter->setPen(QPen(Qt::red,5,Qt::SolidLine, Qt::RoundCap));
+    painter->setPen(QPen(Maincolor,5,Qt::SolidLine, Qt::RoundCap));
     painter->drawLine(x,y,x+h,y+w);
 
     Q_UNUSED(option);
@@ -48,4 +49,8 @@ void Line::change_razmer(int r, int z){
     h=r;
     w=z;
     update(QRectF(-100,-100,800,800));
+}
+
+void Line::change_color(QColor color){
+    Maincolor=color;
 }

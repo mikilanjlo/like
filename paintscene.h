@@ -16,10 +16,15 @@ public:
     float x,y,movex,movey;
     bool put ,  move;
     bool kist;
+    QColor Maincolor;
     void proverka(float &xx, float &yy, bool &add);
     void proverka2(float &xx, float &yy, bool &add);
     void kisttrue();
     void kistfalse();
+
+
+public slots:
+    void change_color(QColor color);
 
 private:
     QPointF     previousPoint;      // Координаты предыдущей точки

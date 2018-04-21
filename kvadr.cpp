@@ -13,6 +13,7 @@ Kvadr::Kvadr(QObject *parent) :
     y=0;
     h=0;
     w=0;
+    Maincolor = Qt::red;
 }
 
 Kvadr::~Kvadr()
@@ -28,7 +29,7 @@ QRectF Kvadr::boundingRect() const
 void Kvadr::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QPen(Qt::NoPen);
-    painter->setBrush(Qt::red);
+    painter->setBrush(Maincolor);
     painter->drawRect(x ,
                    y ,
                    h,
@@ -50,4 +51,8 @@ void Kvadr::change_razmer(int r, int z){
     h=(r+z)/2;
     w=(r+z)/2;
     update(QRectF(-100,-100,800,800));
+}
+
+void Kvadr::change_color(QColor color){
+    Maincolor=color;
 }

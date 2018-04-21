@@ -13,6 +13,13 @@ Circle::Circle(QObject *parent) :
     y=0;
     h=0;
     w=0;
+    Maincolor = Qt::red;
+}
+
+void Circle::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+ angle = 1;
+ setRotation(angle);
 }
 
 Circle::~Circle()
@@ -28,7 +35,7 @@ QRectF Circle::boundingRect() const
 void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QPen(Qt::NoPen);
-    painter->setBrush(Qt::red);
+    painter->setBrush(Maincolor);
     painter->drawEllipse(x ,
                    y ,
                    h,
@@ -50,4 +57,8 @@ void Circle::change_razmer(int r, int z){
     h=r;
     w=z;
     update(QRectF(-100,-100,800,800));
+}
+
+void Circle::change_color(QColor color){
+    Maincolor=color;
 }

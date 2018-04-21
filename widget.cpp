@@ -30,7 +30,8 @@ Widget::Widget() :add(false),move(false), QWidget(0),
     pr = NULL;
     tre = NULL;
     line =NULL;
-
+    MainColor=Qt::white;
+    ui->kraska->setStyleSheet("background-color: "+MainColor.name());
 }
 
 Widget::~Widget()
@@ -56,7 +57,9 @@ void Widget::addanything(){
                 Circle *alian= new Circle();
                     alian->put(x,y);
                     krug=alian;
+                    alian->change_color(MainColor);
                     scene->addItem(alian);
+
 
             }
 
@@ -73,6 +76,7 @@ void Widget::addanything(){
                     Krugi *alians= new Krugi();
                         alians->put(x,y);
                         krugs=alians;
+                        alians->change_color(MainColor);
                         scene->addItem(alians);
 
                 }
@@ -90,6 +94,7 @@ void Widget::addanything(){
                          Kvadr *aliankv= new Kvadr();
                              aliankv->put(x,y);
                              kvadr=aliankv;
+                             aliankv->change_color(MainColor);
                              scene->addItem(aliankv);
 
                      }
@@ -107,6 +112,7 @@ void Widget::addanything(){
                          Prymougol *alianpr= new Prymougol();
                              alianpr->put(x,y);
                              pr=alianpr;
+                             alianpr->change_color(MainColor);
                              scene->addItem(alianpr);
 
                      }
@@ -124,6 +130,7 @@ void Widget::addanything(){
                          Tri *aliantr= new Tri();
                              aliantr->put(x,y);
                              tre=aliantr;
+                             aliantr->change_color(MainColor);
                              scene->addItem(aliantr);
 
                      }
@@ -141,6 +148,7 @@ void Widget::addanything(){
                          Line *alianln = new Line();
                              alianln->put(x,y);
                              line=alianln;
+                             alianln->change_color(MainColor);
                              scene->addItem(alianln);
 
                      }
@@ -252,4 +260,18 @@ void Widget::on_otrezok_clicked()
     ovali = false;
     kist=false;
     scene->kistfalse();
+
+}
+
+void Widget::on_kraska_clicked()
+{
+    QColor color = QColorDialog::getColor(MainColor);
+    if (!color.isValid() ) {
+      qDebug() << "Cancel";
+    }
+    else{
+        MainColor=color;
+        scene->change_color(MainColor);
+        ui->kraska->setStyleSheet("background-color: "+color.name());
+    }
 }

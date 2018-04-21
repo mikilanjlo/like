@@ -18,10 +18,11 @@ public:
     int step;
     int eye;
     float x,y,h,w;
+    QColor Maincolor;
 public slots:
     void put(int r, int z);
     void change_razmer(int r, int z);
-
+    void change_color(QColor color);
 
 
 protected:

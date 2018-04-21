@@ -3,7 +3,7 @@
 
 paintScene::paintScene(QObject *parent) :move(false), put(false),kist(false), QGraphicsScene(parent)
 {
-
+    Maincolor = Qt::red;
 }
 
 paintScene::~paintScene()
@@ -20,7 +20,7 @@ void paintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
                    10,
                    10,
                    QPen(Qt::NoPen),
-                   QBrush(Qt::red));
+                   QBrush(Maincolor));
         // Сохраняем координаты точки нажатия
         previousPoint = event->scenePos();
     }else{
@@ -77,7 +77,7 @@ void paintScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
                 previousPoint.y(),
                 event->scenePos().x(),
                 event->scenePos().y(),
-                QPen(Qt::red,10,Qt::SolidLine,Qt::RoundCap));
+                QPen(Maincolor,10,Qt::SolidLine,Qt::RoundCap));
         // Обновляем данные о предыдущей координате
         previousPoint = event->scenePos();
     }
@@ -86,4 +86,8 @@ void paintScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
         movey=event->scenePos().y();
         move=true;
     }
+}
+
+void paintScene::change_color(QColor color){
+    Maincolor=color;
 }

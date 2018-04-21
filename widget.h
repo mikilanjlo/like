@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QTimer>
 #include <QResizeEvent>
-
+#include <QColorDialog>
 #include <paintscene.h>
 #include <circle.h>
 #include <krugi.h>
@@ -33,6 +33,7 @@ public:
     Prymougol *pr;
     Tri *tre;
     Line *line;
+    QColor MainColor;
     bool kist;
 
     bool krugi;
@@ -79,6 +80,8 @@ private slots:
     void on_treugolnik_clicked();
 
     void on_otrezok_clicked();
+
+    void on_kraska_clicked();
 
 public slots:
     //void kists();

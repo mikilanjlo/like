@@ -13,6 +13,7 @@ Tri::Tri(QObject *parent) :
     y=0;
     h=0;
     w=0;
+    Maincolor = Qt::red;
 }
 
 Tri::~Tri()
@@ -28,7 +29,7 @@ QRectF Tri::boundingRect() const
 void Tri::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QPen(Qt::NoPen);
-    painter->setBrush(Qt::red);
+    painter->setBrush(Maincolor);
     QPolygon polygon;   /// Используем класс полигона, чтобы отрисовать треугольник
     /// Помещаем координаты точек в полигональную модель
     polygon << QPoint(x,y) << QPoint(x,y+h) << QPoint(x+w,y+h);
@@ -49,4 +50,8 @@ void Tri::change_razmer(int r, int z){
     h=z;
     w=r;
     update(QRectF(-100,-100,800,800));
+}
+
+void Tri::change_color(QColor color){
+    Maincolor=color;
 }
