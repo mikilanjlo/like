@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>575</width>
+    <width>685</width>
     <height>335</height>
    </rect>
   </property>
@@ -114,6 +114,23 @@
       <widget class="QGraphicsView" name="graphicsView"/>
      </item>
     </layout>
+   </item>
+   <item row="0" column="1">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>163</width>
+        <height>315</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </item>
   </layout>
  </widget>

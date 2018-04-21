@@ -13,6 +13,7 @@ Krugi::Krugi(QObject *parent) :
     y=0;
     h=0;
     w=0;
+    click=false;
     Maincolor = Qt::red;
 }
 

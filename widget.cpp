@@ -24,6 +24,7 @@ Widget::Widget() :add(false),move(false), QWidget(0),
     otrezki= false;
     treugol = false;
     ovali = false;
+    click = true;
     krug = NULL;
     krugs = NULL;
     kvadr = NULL;
@@ -169,128 +170,131 @@ void Widget::proverca_click(){
 }
 
 void Widget::addanything(){
-    scene->proverka(x,y,add);
-    scene->proverka2(movex,movey,move);
-    if(add||move){
-        if(ovali){
-            if(add){
-                Circle *alian= new Circle();
-                    alian->put(x,y);
-                    krug=alian;
-                    alian->change_color(MainColor);
-                    funccircle(alian);
-                    scene->addItem(alian);
+    //proverca_click();
+    if(!click){
+        scene->proverka(x,y,add);
+        scene->proverka2(movex,movey,move);
 
-
-            }
-
-            if(move && krug!=NULL){
-               krug->change_razmer(movex-x,movey-y) ;
-
-            }
-        }
-       else{
-            krug = NULL;
-        }
-            if(krugi){
+        if(add||move){
+            if(ovali){
                 if(add){
-                    Krugi *alians= new Krugi();
-                        alians->put(x,y);
-                        krugs=alians;
-                        alians->change_color(MainColor);
-                        funckrugi(alians);
-                        scene->addItem(alians);
+                    Circle *alian= new Circle();
+                        alian->put(x,y);
+                        krug=alian;
+                        alian->change_color(MainColor);
+                        funccircle(alian);
+                        scene->addItem(alian);
+
 
                 }
 
-                if(move && krugs!=NULL){
-                   krugs->change_razmer(movex-x,movey-y) ;
+                if(move && krug!=NULL){
+                   krug->change_razmer(movex-x,movey-y) ;
 
                 }
             }
-            else{
-                krugs = NULL;
+           else{
+                krug = NULL;
             }
-                if(kvadrati){
-                     if(add){
-                         Kvadr *aliankv= new Kvadr();
-                             aliankv->put(x,y);
-                             kvadr=aliankv;
-                             aliankv->change_color(MainColor);
-                             funckvadr(aliankv);
-                             scene->addItem(aliankv);
+                if(krugi){
+                    if(add){
+                        Krugi *alians= new Krugi();
+                            alians->put(x,y);
+                            krugs=alians;
+                            alians->change_color(MainColor);
+                            funckrugi(alians);
+                            scene->addItem(alians);
 
-                     }
+                    }
 
-                     if(move && kvadr!=NULL){
-                        kvadr->change_razmer(movex-x,movey-y) ;
+                    if(move && krugs!=NULL){
+                       krugs->change_razmer(movex-x,movey-y) ;
 
-                     }
-                 }
-                else{
-                    kvadr=NULL;
+                    }
                 }
-                if(prymougol){
-                     if(add){
-                         Prymougol *alianpr= new Prymougol();
-                             alianpr->put(x,y);
-                             pr=alianpr;
-                             alianpr->change_color(MainColor);
-                             funcprym(alianpr);
-                             scene->addItem(alianpr);
-
-                     }
-
-                     if(move && pr!=NULL){
-                        pr->change_razmer(movex-x,movey-y) ;
-
-                     }
-                 }
                 else{
-                    pr=NULL;
+                    krugs = NULL;
                 }
-                if(treugol){
-                     if(add){
-                         Tri *aliantr= new Tri();
-                             aliantr->put(x,y);
-                             tre=aliantr;
-                             aliantr->change_color(MainColor);
-                             functri(aliantr);
-                             scene->addItem(aliantr);
+                    if(kvadrati){
+                         if(add){
+                             Kvadr *aliankv= new Kvadr();
+                                 aliankv->put(x,y);
+                                 kvadr=aliankv;
+                                 aliankv->change_color(MainColor);
+                                 funckvadr(aliankv);
+                                 scene->addItem(aliankv);
 
+                         }
+
+                         if(move && kvadr!=NULL){
+                            kvadr->change_razmer(movex-x,movey-y) ;
+
+                         }
                      }
+                    else{
+                        kvadr=NULL;
+                    }
+                    if(prymougol){
+                         if(add){
+                             Prymougol *alianpr= new Prymougol();
+                                 alianpr->put(x,y);
+                                 pr=alianpr;
+                                 alianpr->change_color(MainColor);
+                                 funcprym(alianpr);
+                                 scene->addItem(alianpr);
 
-                     if(move && tre!=NULL){
-                        tre->change_razmer(movex-x,movey-y) ;
+                         }
 
+                         if(move && pr!=NULL){
+                            pr->change_razmer(movex-x,movey-y) ;
+
+                         }
                      }
-                 }
-                else{
-                    tre=NULL;
-                }
-                if(otrezki){
-                     if(add){
-                         Line *alianln = new Line();
-                             alianln->put(x,y);
-                             line=alianln;
-                             alianln->change_color(MainColor);
-                             funcline(alianln);
-                             scene->addItem(alianln);
+                    else{
+                        pr=NULL;
+                    }
+                    if(treugol){
+                         if(add){
+                             Tri *aliantr= new Tri();
+                                 aliantr->put(x,y);
+                                 tre=aliantr;
+                                 aliantr->change_color(MainColor);
+                                 functri(aliantr);
+                                 scene->addItem(aliantr);
 
+                         }
+
+                         if(move && tre!=NULL){
+                            tre->change_razmer(movex-x,movey-y) ;
+
+                         }
                      }
+                    else{
+                        tre=NULL;
+                    }
+                    if(otrezki){
+                         if(add){
+                             Line *alianln = new Line();
+                                 alianln->put(x,y);
+                                 line=alianln;
+                                 alianln->change_color(MainColor);
+                                 funcline(alianln);
+                                 scene->addItem(alianln);
 
-                     if(move && line!=NULL){
-                        line->change_razmer(movex-x,movey-y) ;
+                         }
 
+                         if(move && line!=NULL){
+                            line->change_razmer(movex-x,movey-y) ;
+
+                         }
                      }
-                 }
-                else{
-                    line=NULL;
-                }
+                    else{
+                        line=NULL;
+                    }
 
 
+        }
     }
-
 }
 
 
@@ -305,7 +309,7 @@ void Widget::resizeEvent(QResizeEvent *event)
 
 void Widget::on_kist_clicked()
 {
-
+    click=false;
     krugi= false;
     kvadrati= false;
     prymougol= false;
@@ -318,6 +322,7 @@ void Widget::on_kist_clicked()
 
 void Widget::on_krug_clicked()
 {
+    click=false;
     krugi= true;
     kvadrati= false;
     prymougol= false;
@@ -330,6 +335,7 @@ void Widget::on_krug_clicked()
 
 void Widget::on_elipse_clicked()
 {
+    click=false;
     krugi= false;
     kvadrati= false;
     prymougol= false;
@@ -342,6 +348,7 @@ void Widget::on_elipse_clicked()
 
 void Widget::on_kvadrat_clicked()
 {
+    click=false;
     krugi= false;
     kvadrati= true;
     prymougol= false;
@@ -354,6 +361,7 @@ void Widget::on_kvadrat_clicked()
 
 void Widget::on_prymougolnic_pressed()
 {
+    click=false;
     krugi= false;
     kvadrati= false;
     prymougol= true;
@@ -366,6 +374,7 @@ void Widget::on_prymougolnic_pressed()
 
 void Widget::on_treugolnik_clicked()
 {
+    click=false;
     krugi= false;
     kvadrati= false;
     prymougol= false;
@@ -378,6 +387,7 @@ void Widget::on_treugolnik_clicked()
 
 void Widget::on_otrezok_clicked()
 {
+    click=false;
     krugi= false;
     kvadrati= false;
     prymougol= false;
@@ -411,5 +421,6 @@ void Widget::on_klick_clicked()
     treugol = false;
     ovali = false;
     kist=false;
+    click = true;
     scene->kistfalse();
 }

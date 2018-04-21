@@ -18,6 +18,7 @@ public:
     int step;
     int eye;
     float x,y,h,w;
+    bool click;
     QColor Maincolor;
 public slots:
     void put(int r, int z);

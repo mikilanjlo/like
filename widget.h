@@ -93,6 +93,7 @@ public:
     bool otrezki;
 
     bool treugol;
+    bool click;
 
 private:
     Ui::Widget *ui;
@@ -109,6 +110,7 @@ private:
     void functri(Tri *x);
     void funcprym(Prymougol *x);
     void proverca_click();
+
 
 
 private:
