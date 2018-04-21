@@ -31,6 +31,12 @@ Widget::Widget() :add(false),move(false), QWidget(0),
     pr = NULL;
     tre = NULL;
     line =NULL;
+    Circlename = 0;
+    Kruginame = 0;
+    Kvadrname = 0;
+    Linename = 0;
+    Prymname = 0;
+    Triname = 0;
    /* fcircles= NULL;
     fkrugis= NULL;
     fkvadrs= NULL;
@@ -38,6 +44,12 @@ Widget::Widget() :add(false),move(false), QWidget(0),
     fpryms= NULL;
     ftris= NULL;*/
     flist = new list;
+    flist->circles=NULL;
+    flist->krugis=NULL;
+    flist->kvadrs=NULL;
+    flist->lines=NULL;
+    flist->pryms=NULL;
+    flist->tris=NULL;
     MainColor=Qt::white;
     ui->kraska->setStyleSheet("background-color: "+MainColor.name());
 }
@@ -53,6 +65,8 @@ void Widget::funccircle(Circle* x){
         listcircle* c = new listcircle;
         c->object = x;
         c->next = NULL;
+        c->name = Circlename;
+        Circlename++;
         if (flist->circles == NULL){
             flist->circles = c;
         }
@@ -71,6 +85,8 @@ void Widget::funckrugi(Krugi* x){
         listkrugi* c = new listkrugi;
         c->object = x;
         c->next = NULL;
+        c->name = Kruginame;
+        Kruginame++;
         if (flist->krugis == NULL){
             flist->krugis = c;
         }
@@ -89,6 +105,8 @@ void Widget::funckvadr(Kvadr* x){
         listkvadr* c = new listkvadr;
         c->object = x;
         c->next = NULL;
+        c->name = Kvadrname;
+        Kvadrname++;
         if (flist->kvadrs == NULL){
             flist->kvadrs = c;
         }
@@ -107,6 +125,8 @@ void Widget::funcline(Line* x){
         listline* c = new listline;
         c->object = x;
         c->next = NULL;
+        c->name = Linename;
+        Linename++;
         if (flist->lines == NULL){
             flist->lines = c;
         }
@@ -125,6 +145,8 @@ void Widget::funcprym(Prymougol* x){
         listprym* c = new listprym;
         c->object = x;
         c->next = NULL;
+        c->name = Prymname;
+        Prymname++;
         if (flist->pryms == NULL){
             flist->pryms = c;
         }
@@ -143,6 +165,8 @@ void Widget::functri(Tri* x){
         listtri* c = new listtri;
         c->object = x;
         c->next = NULL;
+        c->name = Triname;
+        Triname++;
         if (flist->tris == NULL){
             flist->tris = c;
         }
@@ -414,6 +438,11 @@ void Widget::on_kraska_clicked()
 
 void Widget::on_klick_clicked()
 {
+   /* QPushButton *button = new QPushButton("My Button", ui->scrollArea);
+     // устанавливаем размер и положение кнопки
+     button->setGeometry(QRect(QPoint(0, 0),
+     QSize(200, 50)));
+     button->setVisible(true);*/
     krugi= false;
     kvadrati= false;
     prymougol= false;

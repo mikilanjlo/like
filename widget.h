@@ -7,6 +7,7 @@
 #include <QColorDialog>
 #include <paintscene.h>
 #include <circle.h>
+#include <QPushButton>
 #include <krugi.h>
 #include <kvadr.h>
 #include <prymougol.h>
@@ -18,32 +19,38 @@ class Widget;
 }
 
 struct listcircle {
+        int name;
         Circle *object;
         listcircle* next; //Ссылка на следущий элемент списка
 };
 
 struct listkrugi {
         Krugi *object;
+        int name;
         listkrugi* next; //Ссылка на следущий элемент списка
 };
 
 struct listkvadr {
         Kvadr *object;
+        int name;
         listkvadr* next; //Ссылка на следущий элемент списка
 };
 
 struct listline {
         Line *object;
+        int name;
         listline* next; //Ссылка на следущий элемент списка
 };
 
 struct listprym {
         Prymougol *object;
+        int name;
         listprym* next; //Ссылка на следущий элемент списка
 };
 
 struct listtri {
         Tri *object;
+        int name;
         listtri* next; //Ссылка на следущий элемент списка
 };
 
@@ -66,6 +73,7 @@ public:
     void addanything();
     float x,y,movex,movey;
     bool add,move;
+    QPushButton *but;
     Circle *krug;
     Krugi *krugs;
     Kvadr *kvadr;
@@ -73,6 +81,12 @@ public:
     Tri *tre;
     Line *line;
     QColor MainColor;
+    int Circlename;
+    int Kruginame;
+    int Kvadrname;
+    int Linename;
+    int Prymname;
+    int Triname;
    /* listcircle fcircles;
     listkrugi fkrugis;
     listkvadr fkvadrs;

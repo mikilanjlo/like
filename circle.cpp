@@ -19,8 +19,7 @@ Circle::Circle(QObject *parent) :
 
 void Circle::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
- if(click){}
-    //update(QRectF(-100,-100,800,800));
+
 }
 
 Circle::~Circle()
@@ -71,5 +70,5 @@ void Circle::change_color(QColor color){
 }
 
 void Circle::clickresult(){
-    click=!click;
+   // click=!click;
 }
