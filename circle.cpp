@@ -38,7 +38,7 @@ void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
         QPen(Qt::NoPen);
     }
     else{
-        painter->setPen(QPen(Qt::blue,5,Qt::SolidLine, Qt::RoundCap));
+        painter->setPen(QPen(Qt::blue,3,Qt::SolidLine, Qt::RoundCap));
     }
     painter->setBrush(Maincolor);
     painter->drawEllipse(x ,
@@ -69,6 +69,12 @@ void Circle::change_color(QColor color){
     //update(QRectF(-100,-100,800,800));
 }
 
-void Circle::clickresult(){
-   // click=!click;
+void Circle::clickresult(int usl){
+    if (usl == 2){
+        click=!click;
+    }
+    if (usl == 0){
+        click = false;
+    }
 }
+

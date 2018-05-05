@@ -29,7 +29,12 @@ QRectF Krugi::boundingRect() const
 
 void Krugi::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QPen(Qt::NoPen);
+    if(!click){
+        QPen(Qt::NoPen);
+    }
+    else{
+        painter->setPen(QPen(Qt::blue,3,Qt::SolidLine, Qt::RoundCap));
+    }
     painter->setBrush(Maincolor);
     painter->drawEllipse(x ,
                    y ,
@@ -56,4 +61,13 @@ void Krugi::change_razmer(int r, int z){
 
 void Krugi::change_color(QColor color){
     Maincolor=color;
+}
+
+void Krugi::clickresult(int usl){
+    if (usl == 2){
+        click=!click;
+    }
+    if (usl == 0){
+        click = false;
+    }
 }

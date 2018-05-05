@@ -32,7 +32,13 @@ void Line::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     //QPen(Qt::NoPen);
     //painter->setBrush(Maincolor);
     //painter->SetPen(QPen(Qt::red,10,Qt::SolidLine,Qt::RoundCap));
-    painter->setPen(QPen(Maincolor,5,Qt::SolidLine, Qt::RoundCap));
+    if(!click){
+        painter->setPen(QPen(Maincolor,5,Qt::SolidLine, Qt::RoundCap));
+    }
+    else{
+        painter->setPen(QPen(Qt::blue,5,Qt::SolidLine, Qt::RoundCap));
+    }
+
     painter->drawLine(x,y,x+h,y+w);
 
     Q_UNUSED(option);
@@ -54,4 +60,13 @@ void Line::change_razmer(int r, int z){
 
 void Line::change_color(QColor color){
     Maincolor=color;
+}
+
+void Line::clickresult(int usl){
+    if (usl == 2){
+        click=!click;
+    }
+    if (usl == 0){
+        click = false;
+    }
 }

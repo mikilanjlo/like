@@ -29,7 +29,12 @@ QRectF Tri::boundingRect() const
 
 void Tri::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QPen(Qt::NoPen);
+    if(!click){
+        QPen(Qt::NoPen);
+    }
+    else{
+        painter->setPen(QPen(Qt::blue,3,Qt::SolidLine, Qt::RoundCap));
+    }
     painter->setBrush(Maincolor);
     QPolygon polygon;   /// Используем класс полигона, чтобы отрисовать треугольник
     /// Помещаем координаты точек в полигональную модель
@@ -55,4 +60,13 @@ void Tri::change_razmer(int r, int z){
 
 void Tri::change_color(QColor color){
     Maincolor=color;
+}
+
+void Tri::clickresult(int usl){
+    if (usl == 2){
+        click=!click;
+    }
+    if (usl == 0){
+        click = false;
+    }
 }

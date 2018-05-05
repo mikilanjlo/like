@@ -26,7 +26,7 @@ public slots:
     void put(int r, int z);
     void change_razmer(int r, int z);
     void change_color(QColor color);
-    void clickresult();
+    void clickresult(int usl);
 
 
 protected:

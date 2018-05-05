@@ -5,6 +5,7 @@
 #include <QTimer>
 #include <QResizeEvent>
 #include <QColorDialog>
+#include <QShortcut>
 #include <paintscene.h>
 #include <circle.h>
 #include <QPushButton>
@@ -27,30 +28,40 @@ struct listcircle {
 struct listkrugi {
         Krugi *object;
         int name;
+        int x_x;
+        int y_y;
         listkrugi* next; //Ссылка на следущий элемент списка
 };
 
 struct listkvadr {
         Kvadr *object;
         int name;
+        int x_x;
+        int y_y;
         listkvadr* next; //Ссылка на следущий элемент списка
 };
 
 struct listline {
         Line *object;
         int name;
+        int x_x;
+        int y_y;
         listline* next; //Ссылка на следущий элемент списка
 };
 
 struct listprym {
         Prymougol *object;
         int name;
+        int x_x;
+        int y_y;
         listprym* next; //Ссылка на следущий элемент списка
 };
 
 struct listtri {
         Tri *object;
         int name;
+        int x_x;
+        int y_y;
         listtri* next; //Ссылка на следущий элемент списка
 };
 
@@ -61,6 +72,11 @@ struct list {
         listline *lines;
         listprym *pryms;
         listtri *tris;
+};
+
+struct buttons{
+    QPushButton *but;
+    buttons *next;
 };
 
 class Widget : public QWidget
@@ -80,6 +96,7 @@ public:
     Prymougol *pr;
     Tri *tre;
     Line *line;
+    buttons *headbut;
     QColor MainColor;
     int Circlename;
     int Kruginame;
@@ -87,6 +104,7 @@ public:
     int Linename;
     int Prymname;
     int Triname;
+    QString namebut;
    /* listcircle fcircles;
     listkrugi fkrugis;
     listkvadr fkvadrs;
@@ -94,6 +112,7 @@ public:
     listprym fpryms;
     listtri ftris;*/
     list *flist;
+    list *ylist;
     bool kist;
 
     bool krugi;
@@ -117,6 +136,8 @@ private:
                          * */
     QTimer *timer1;
     paintScene *scene;  // Объявляем кастомную графическую сцену
+    int butcount;
+    QShortcut *keyCtrlZ;
     void funccircle(Circle *x);
     void funckrugi(Krugi *x);
     void funckvadr(Kvadr *x);
@@ -124,6 +145,9 @@ private:
     void functri(Tri *x);
     void funcprym(Prymougol *x);
     void proverca_click();
+    void create_button(QString s,int x);
+    void deleteY();
+    void deleteborder();
 
 
 
@@ -153,6 +177,10 @@ private slots:
     void on_kraska_clicked();
 
     void on_klick_clicked();
+
+    void on_deletebut_clicked();
+    void click_my_button();
+    void nazad();
 
 public slots:
     //void kists();

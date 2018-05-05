@@ -29,7 +29,12 @@ QRectF Prymougol::boundingRect() const
 
 void Prymougol::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QPen(Qt::NoPen);
+    if(!click){
+        QPen(Qt::NoPen);
+    }
+    else{
+        painter->setPen(QPen(Qt::blue,3,Qt::SolidLine, Qt::RoundCap));
+    }
     painter->setBrush(Maincolor);
     painter->drawRect(x ,
                    y ,
@@ -56,4 +61,13 @@ void Prymougol::change_razmer(int r, int z){
 
 void Prymougol::change_color(QColor color){
     Maincolor=color;
+}
+
+void Prymougol::clickresult(int usl){
+    if (usl == 2){
+        click=!click;
+    }
+    if (usl == 0){
+        click = false;
+    }
 }
