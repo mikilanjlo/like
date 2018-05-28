@@ -70,3 +70,7 @@ void Line::clickresult(int usl){
         click = false;
     }
 }
+
+void Line::draw(QGraphicsScene *scene){
+    scene->addItem(this);
+}

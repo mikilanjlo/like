@@ -5,6 +5,7 @@
 #include <QTimer>
 #include <QResizeEvent>
 #include <QColorDialog>
+#include <QTemporaryFile>
 #include <QShortcut>
 #include <paintscene.h>
 #include <circle.h>
@@ -14,64 +15,25 @@
 #include <prymougol.h>
 #include <tri.h>
 #include <line.h>
+#include <mymy.h>
+#include <QShortcut>
 
 namespace Ui {
 class Widget;
 }
 
-struct listcircle {
-        int name;
-        Circle *object;
-        listcircle* next; //Ссылка на следущий элемент списка
+struct files{
+    int name;
+    QFile *file;
+    files *next;
 };
 
-struct listkrugi {
-        Krugi *object;
-        int name;
-        int x_x;
-        int y_y;
-        listkrugi* next; //Ссылка на следущий элемент списка
-};
 
-struct listkvadr {
-        Kvadr *object;
-        int name;
-        int x_x;
-        int y_y;
-        listkvadr* next; //Ссылка на следущий элемент списка
-};
-
-struct listline {
-        Line *object;
-        int name;
-        int x_x;
-        int y_y;
-        listline* next; //Ссылка на следущий элемент списка
-};
-
-struct listprym {
-        Prymougol *object;
-        int name;
-        int x_x;
-        int y_y;
-        listprym* next; //Ссылка на следущий элемент списка
-};
-
-struct listtri {
-        Tri *object;
-        int name;
-        int x_x;
-        int y_y;
-        listtri* next; //Ссылка на следущий элемент списка
-};
 
 struct list {
-        listcircle *circles;
-        listkrugi *krugis;
-        listkvadr *kvadrs;
-        listline *lines;
-        listprym *pryms;
-        listtri *tris;
+        Figure *object;
+        int name;
+        list *next;
 };
 
 struct buttons{
@@ -90,29 +52,16 @@ public:
     float x,y,movex,movey;
     bool add,move;
     QPushButton *but;
-    Circle *krug;
-    Krugi *krugs;
-    Kvadr *kvadr;
-    Prymougol *pr;
-    Tri *tre;
-    Line *line;
+    Figure *my;
     buttons *headbut;
     QColor MainColor;
-    int Circlename;
-    int Kruginame;
-    int Kvadrname;
-    int Linename;
-    int Prymname;
-    int Triname;
+    int listname;
     QString namebut;
-   /* listcircle fcircles;
-    listkrugi fkrugis;
-    listkvadr fkvadrs;
-    listline flines;
-    listprym fpryms;
-    listtri ftris;*/
+
     list *flist;
     list *ylist;
+    files *filehead;
+    int filesname;
     bool kist;
 
     bool krugi;
@@ -138,16 +87,18 @@ private:
     paintScene *scene;  // Объявляем кастомную графическую сцену
     int butcount;
     QShortcut *keyCtrlZ;
-    void funccircle(Circle *x);
-    void funckrugi(Krugi *x);
-    void funckvadr(Kvadr *x);
-    void funcline(Line *x);
-    void functri(Tri *x);
-    void funcprym(Prymougol *x);
+    void funclist(Figure *x);
+    QShortcut *keyCtrlY;
+    int maxfile;
+
     void proverca_click();
-    void create_button(QString s,int x);
+    void create_button(int x);
     void deleteY();
-    void deleteborder();
+    void deleteall();
+    void zapis();
+    void zapis2(QTemporaryFile &f);
+    void read(QString filename);
+    void click_my_button();
 
 
 
@@ -158,7 +109,7 @@ private:
     void resizeEvent(QResizeEvent * event);
 
 private slots:
-    void slotTimer();
+    //void slotTimer();
 
     void on_kist_clicked();
 
@@ -179,8 +130,15 @@ private slots:
     void on_klick_clicked();
 
     void on_deletebut_clicked();
-    void click_my_button();
-    void nazad();
+
+    void slotz();
+    void sloty();
+
+
+
+    void on_pushButton_clicked();
+
+    void on_save_clicked();
 
 public slots:
     //void kists();

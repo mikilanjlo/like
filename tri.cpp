@@ -70,3 +70,7 @@ void Tri::clickresult(int usl){
         click = false;
     }
 }
+
+void Tri::draw(QGraphicsScene *scene){
+    scene->addItem(this);
+}

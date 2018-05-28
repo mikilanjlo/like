@@ -78,3 +78,12 @@ void Circle::clickresult(int usl){
     }
 }
 
+QString Circle::returnznach(){
+   QString s;
+   s = QString::number(x) + QString("_") + QString::number(y) + QString("_") + QString::number(w) + QString("_") + QString::number(h);
+   return s;
+}
+
+void Circle::draw(QGraphicsScene *scene){
+    scene->addItem(this);
+}

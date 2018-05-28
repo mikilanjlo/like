@@ -4,10 +4,10 @@
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QGraphicsScene>
+#include "mymy.h"
 
 
-
-class Tri : public QObject, public QGraphicsItem
+class Tri : public QObject, public QGraphicsItem, public Figure
 {
     Q_OBJECT
 public:
@@ -25,7 +25,7 @@ public slots:
     void change_razmer(int r, int z);
     void change_color(QColor color);
     void clickresult(int usl);
-
+    void draw(QGraphicsScene *scene);
 
 protected:
     QRectF boundingRect() const;

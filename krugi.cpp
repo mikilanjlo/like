@@ -71,3 +71,7 @@ void Krugi::clickresult(int usl){
         click = false;
     }
 }
+
+void Krugi::draw(QGraphicsScene *scene){
+    scene->addItem(this);
+}

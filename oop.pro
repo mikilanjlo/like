@@ -42,7 +42,8 @@ HEADERS += \
     kvadr.h \
     prymougol.h \
     tri.h \
-    line.h
+    line.h \
+    mymy.h
 
 FORMS += \
         widget.ui

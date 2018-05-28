@@ -4,11 +4,13 @@
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QGraphicsScene>
+#include "mymy.h"
 
 
 
-class Circle : public QObject, public QGraphicsItem
+class Circle : public QObject , public Figure , public QGraphicsItem
 {
+
     Q_OBJECT
 public:
     explicit Circle(QObject *parent = 0);
@@ -22,11 +24,14 @@ public:
     float x,y,h,w;
     bool click;
     QColor Maincolor;
+    QString  returnznach();
 public slots:
     void put(int r, int z);
     void change_razmer(int r, int z);
     void change_color(QColor color);
     void clickresult(int usl);
+    void draw(QGraphicsScene *scene);
+
 
 
 protected:

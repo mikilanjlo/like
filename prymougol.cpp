@@ -71,3 +71,7 @@ void Prymougol::clickresult(int usl){
         click = false;
     }
 }
+
+void Prymougol::draw(QGraphicsScene *scene){
+    scene->addItem(this);
+}

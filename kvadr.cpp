@@ -71,3 +71,7 @@ void Kvadr::clickresult(int usl){
         click = false;
     }
 }
+
+void Kvadr::draw(QGraphicsScene *scene){
+    scene->addItem(this);
+}
